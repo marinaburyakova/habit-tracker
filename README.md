@@ -3,6 +3,7 @@
 A personal habit tracker built with **Next.js 16**, **React 19**, and **TypeScript**.
 
 Track daily habits, build streaks, and stay motivated with milestone badges.
+![CI](https://github.com/marinaburyakova/habit-tracker/actions/workflows/ci.yml/badge.svg)
 
 ![Habit Tracker](./public/screenshots/habits.png)
 
