@@ -1,0 +1,47 @@
+.item {
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  gap: 16px;
+  min-height: 181px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item.done {
+  background: var(--habit-color, #FD6F00);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.streak {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

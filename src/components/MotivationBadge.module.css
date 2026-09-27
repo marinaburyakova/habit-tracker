@@ -1,0 +1,51 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(253, 111, 0, 0.15);
+  border: 1px solid rgba(253, 111, 0, 0.4);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1d1b1a;
+  animation: popIn 0.4s ease-out, pulse 2s ease-in-out 0.4s infinite;
+}
+
+.emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.text {
+  white-space: nowrap;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(253, 111, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(253, 111, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    animation: none;
+  }
+}
