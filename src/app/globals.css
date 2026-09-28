@@ -1,6 +1,7 @@
 :root {
-  --background: #ffffff;
+  --background: #0a0a0a;
   --foreground: #171717;
+  --accent: #FD6F00;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,12 +13,6 @@
 
 html {
   height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {

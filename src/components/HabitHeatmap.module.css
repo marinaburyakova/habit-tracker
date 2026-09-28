@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: #2a2a2a;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.cell:hover {
+  transform: scale(1.15);
+}
+
+.cellDone {
+  background: var(--habit-color);
+}
+
+.cellToday {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}

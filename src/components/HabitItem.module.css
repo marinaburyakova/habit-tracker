@@ -1,47 +1,215 @@
 .item {
-  width: 100%;
-  box-sizing: border-box;
-  color: white;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  border-radius: 16px;
   background: #1a1a1a;
-  border-radius: 12px;
-  gap: 16px;
-  min-height: 181px;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #2a2a2a;
+  overflow: hidden;
+  min-width: 0;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.item.done {
-  background: var(--habit-color, #FD6F00);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+.itemDone {
+  background: #1a1a1a;
+  border: 2px solid var(--habit-color);
+  box-shadow:
+    0 0 0 1px var(--habit-color),
+    0 0 24px -4px var(--habit-color),
+    0 12px 32px -16px var(--habit-color);
 }
 
-.row {
+/* Кликабельная зона */
+.main {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
-}
-
-.info {
-  flex: 1;
+  padding: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
   min-width: 0;
 }
 
-.name {
-  font-size: 20px;
-  font-weight: 700;
+.main:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.streak {
-  font-size: 14px;
-  opacity: 0.85;
-  margin-top: 4px;
+.main:focus-visible {
+  outline: 2px solid var(--habit-color);
+  outline-offset: -2px;
 }
 
-.actions {
+.main:active {
+  transform: scale(0.995);
+}
+
+/* Кружок */
+.checkButton {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px dashed var(--habit-color);
+  background: transparent;
   display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.checkButton::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--habit-color);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.main:hover .checkButton::after {
+  opacity: 0.25;
+}
+
+.itemDone .checkButton {
+  border-style: solid;
+  background: var(--habit-color);
+  animation: pop 0.3s ease-out;
+}
+
+.itemDone .checkButton::after {
+  display: none;
+}
+
+.checkIcon {
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.checkPlaceholder {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Инфо */
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;              /* ← критично: flex-ребёнок может сжиматься */
+  overflow: hidden;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--habit-color);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.deleteWrapper {
+  flex-shrink: 0;
+  cursor: default;
+  margin-left: auto;
+}
+
+/* Кнопка "детали" */
+.expandButton {
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #999;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  font-family: inherit;
+  text-align: center;
+}
+
+.expandButton:hover {
+  color: #ccc;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.itemDone .expandButton {
+  color: rgba(255, 255, 255, 0.75);
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.itemDone .expandButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.itemDone .details {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Узкие экраны */
+@media (max-width: 400px) {
+  .main {
+    gap: 10px;
+    padding: 14px;
+  }
+  .checkButton {
+    width: 44px;
+    height: 44px;
+  }
+  .checkIcon {
+    width: 20px;
+    height: 20px;
+  }
+  .name {
+    font-size: 14px;
+  }
+  .details {
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .main,
+  .checkButton,
+  .itemDone .checkButton {
+    transition: none;
+    animation: none;
+  }
 }

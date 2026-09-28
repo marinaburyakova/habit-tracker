@@ -1,62 +1,46 @@
 'use client'
 
-import { useState } from 'react'
-import {
-  createHabit,
-  toggleCompletion,
-  removeHabit,
-  removeCompletionsForHabit,
-  type Habit,
-  type HabitCompletion,
-} from '@/lib/habits'
+import { useEffect, useSyncExternalStore } from 'react'
+import { useHabitsStore } from '@/stores/habits'
 import AddHabitForm from '@/components/AddHabitForm'
 import HabitList from '@/components/HabitList'
 
-const HABIT_COLORS = ['#FD6F00', '#4EA8DE', '#7C3AED', '#10B981', '#EF4444']
+const emptySubscribe = () => () => {}
 
 export default function HabitTrackerClient() {
-  const [habits, setHabits] = useState<Habit[]>([
-    createHabit('Read 30 minutes', '#FD6F00'),
-    createHabit('Drink 2L water', '#4EA8DE'),
-    createHabit('Workout', '#7C3AED'),
-  ])
-  const [completions, setCompletions] = useState<HabitCompletion[]>([])
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,   // клиент
+    () => false   // сервер
+  )
 
-  function handleAdd(name: string) {
-    setHabits((prev) => {
-      const isDuplicate = prev.some(
-        (h) => h.name.toLowerCase() === name.toLowerCase()
-      )
-      if (isDuplicate) return prev
+  const habits = useHabitsStore((s) => s.habits)
+  const completions = useHabitsStore((s) => s.completions)
+  const addHabit = useHabitsStore((s) => s.addHabit)
+  const toggle = useHabitsStore((s) => s.toggle)
+  const deleteHabit = useHabitsStore((s) => s.deleteHabit)
 
-      const color = HABIT_COLORS[prev.length % HABIT_COLORS.length]
-      return [...prev, createHabit(name, color)]
-    })
-  }
+  // rehydrate — не setState, а обновление Zustand-стора. React не ругается.
+  useEffect(() => {
+    useHabitsStore.persist.rehydrate()
+  }, [])
 
-  function handleToggle(habitId: string, date: string) {
-    setCompletions((prev) => toggleCompletion(prev, habitId, date))
-  }
-
-  function handleDelete(habitId: string) {
-    const habit = habits.find((h) => h.id === habitId)
-    if (!habit) return
-
-    const confirmed = confirm(`Delete "${habit.name}"?`)
-    if (!confirmed) return
-
-    setHabits((prev) => removeHabit(prev, habitId))
-    setCompletions((prev) => removeCompletionsForHabit(prev, habitId))
+  if (!mounted) {
+    return (
+      <p style={{ textAlign: 'center', opacity: 0.5, padding: 40 }}>
+        Loading…
+      </p>
+    )
   }
 
   return (
     <>
-      <AddHabitForm onAdd={handleAdd} />
+      <AddHabitForm onAdd={addHabit} />
       <HabitList
         habits={habits}
         completions={completions}
-        onToggle={handleToggle}
-        onDelete={handleDelete}
+        onToggle={toggle}
+        onDelete={deleteHabit}
       />
     </>
   )
