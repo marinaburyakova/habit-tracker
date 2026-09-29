@@ -12,7 +12,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
+<<<<<<< HEAD
      "types": ["vitest/globals", "@testing-library/jest-dom"],
+=======
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
     "incremental": true,
     "plugins": [
       {

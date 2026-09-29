@@ -8,7 +8,11 @@ on:
 
 jobs:
   build:
+<<<<<<< HEAD
     name: Lint · Typecheck · Test · Build
+=======
+    name: Lint · Typecheck · Build
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +34,7 @@ jobs:
       - name: Typecheck
         run: npx next typegen && npx tsc --noEmit
 
+<<<<<<< HEAD
       - name: Test
         run: npm run test:run
 
@@ -46,3 +51,7 @@ jobs:
 
       - name: Build
         run: npm run build
+=======
+      - name: Build
+        run: npm run build
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43

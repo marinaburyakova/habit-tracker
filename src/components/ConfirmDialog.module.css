@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .dialog {
   margin: auto; /* ← обязательно */
   max-width: 400px;
@@ -9,32 +10,68 @@
   color: var(--text-primary);
   overflow: visible; /* ← убрать эту строку */
 }
+=======
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: calc(100% - 32px);
+  max-width: 400px;
+  height: fit-content;
+  max-height: calc(100vh - 32px);
+  border: none;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
 .dialog::backdrop {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
 }
+<<<<<<< HEAD
 
 .content {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+=======
+.content {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+<<<<<<< HEAD
   box-shadow: var(--shadow-lg);
+=======
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.8);
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
 }
 
 .title {
   font-size: 18px;
   font-weight: 700;
+<<<<<<< HEAD
   color: var(--text-primary);
+=======
+  color: #fff;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   margin: 0;
 }
 
 .description {
   font-size: 14px;
+<<<<<<< HEAD
   color: var(--text-secondary);
+=======
+  color: #999;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   margin: 0;
   line-height: 1.5;
 }
@@ -48,21 +85,31 @@
 
 .cancel,
 .confirm {
+<<<<<<< HEAD
   padding: 10px 18px;
   border-radius: var(--radius-full);
+=======
+  padding: 10px 16px;
+  border-radius: 8px;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
+<<<<<<< HEAD
   transition:
     background 0.15s,
     border-color 0.15s,
     transform 0.1s;
+=======
+  transition: all 0.15s;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   font-family: inherit;
 }
 
 .cancel {
   background: transparent;
+<<<<<<< HEAD
   border-color: var(--border);
   color: var(--text-primary);
 }
@@ -74,10 +121,24 @@
 
 .confirm {
   background: var(--accent);
+=======
+  border-color: #2a2a2a;
+  color: #ccc;
+}
+
+.cancel:hover {
+  border-color: #444;
+  color: #fff;
+}
+
+.confirm {
+  background: #333;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   color: #fff;
 }
 
 .confirm:hover {
+<<<<<<< HEAD
   background: var(--accent-hover);
 }
 
@@ -88,9 +149,21 @@
 
 .danger {
   background: var(--danger);
+=======
+  background: #444;
+}
+
+.danger {
+  background: #dc2626;
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
   color: #fff;
 }
 
 .danger:hover {
+<<<<<<< HEAD
   filter: brightness(1.1);
 }
+=======
+  background: #b91c1c;
+}
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43

@@ -1,0 +1,113 @@
+.grid {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.weekday {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.5px;
+  transition: color 0.15s;
+}
+
+.weekdayToday {
+  color: #bbb;
+}
+
+.day {
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 40px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  background: transparent;
+  color: #666;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Сегодня — кликабельно */
+.day.today {
+  cursor: pointer;
+  border: 2px solid var(--habit-color);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.day.today:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.day.today:active {
+  transform: scale(0.92);
+}
+
+/* Галочка-плейсхолдер для сегодня */
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--habit-color);
+  opacity: 0.55;
+}
+
+.day.today:hover .checkIcon {
+  opacity: 1;
+}
+
+/* Отмечено */
+.day.done {
+  background: var(--habit-color);
+  border-color: var(--habit-color);
+  color: #fff;
+  animation: pop 0.3s ease-out;
+}
+
+.day.done.today {
+  border: 2px solid #fff;
+}
+
+/* Прошлые — read-only */
+.day.past {
+  opacity: 0.35;
+}
+
+/* Будущие — disabled, пунктир */
+.day.future {
+  opacity: 0.25;
+  border-style: dashed;
+}
+
+.day:disabled {
+  cursor: default;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day,
+  .day.done {
+    animation: none;
+    transition: none;
+  }
+}

@@ -46,7 +46,11 @@ export default function ConfirmDialog({
         onCancel()
       }}
       onClick={(e) => {
+<<<<<<< HEAD
         // клик по backdrop — закрыть
+=======
+        // Клик по backdrop (вне .content) — закрыть
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
         if (e.target === ref.current) onCancel()
       }}
     >
@@ -55,7 +59,15 @@ export default function ConfirmDialog({
         {description && <p className={styles.description}>{description}</p>}
 
         <div className={styles.actions}>
+<<<<<<< HEAD
           <button type="button" className={styles.cancel} onClick={onCancel}>
+=======
+          <button
+            type="button"
+            className={styles.cancel}
+            onClick={onCancel}
+          >
+>>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
             {cancelLabel}
           </button>
           <button
