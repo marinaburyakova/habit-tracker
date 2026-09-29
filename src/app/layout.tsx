@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import type { Metadata } from 'next'
 import { Jost } from 'next/font/google'
 import './globals.css'
@@ -51,36 +50,3 @@ export default function RootLayout({
     </html>
   )
 }
-=======
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: 'Habit Tracker — Marina Dev',
-  description: 'Personal habit tracker with streaks and analytics.',
-  icons: {
-    icon: "/favicon.svg",
-  },
-}
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
-    </html>
-  );
-}
-
->>>>>>> bd87b9c1badc72757f5b2135981fde4c88ba3a43
