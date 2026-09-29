@@ -143,4 +143,4 @@ Coverage targets: **100% statements** for `lib/` and `stores/`, **80%+ branches*
 
 **Marina Dev** — Fullstack Developer  
 GitHub: [@marinaburyakova](https://github.com/marinaburyakova)  
-Portfolio: [mint-apps.com](https://portfolio.mint-apps.com)
+Portfolio: [portfolio.mint-apps.com](https://portfolio.mint-apps.com)
