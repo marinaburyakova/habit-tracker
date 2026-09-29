@@ -1,0 +1,29 @@
+.placeholder {
+  width: 44px;
+  height: 44px;
+}
+
+.button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s, transform 0.1s;
+}
+
+.button:hover {
+  background: var(--surface-2);
+}
+
+.button:active {
+  transform: scale(0.94);
+}

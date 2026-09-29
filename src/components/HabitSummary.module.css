@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+.pillDone {
+  background: var(--accent-soft);
+}
+
+.pillDone .pillValue {
+  color: var(--accent-text);
+}
+
+.pillDone .pillLabel {
+  color: var(--accent-text);
+  opacity: 0.7;
+}
+
+.pillValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.pillLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.progress {
+  flex: 1;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #FD93FF, #725CF8);
+  border-radius: var(--radius-full);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progressText {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}

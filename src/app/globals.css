@@ -1,0 +1,129 @@
+:root,
+[data-theme="light"] {
+  --bg: #DFE2EC;
+  --bg-elevated: #E8EBF2;
+  --surface: #FFFFFF;
+  --surface-2: #F5F6FA;
+  --surface-3: #ECEFF6;
+
+  --text-primary: #1C1721;
+  --text-secondary: #7F8187;
+  --text-tertiary: #A0A0A0;
+  --text-inverse: #FFFFFF;
+
+  --accent: #9E6DFB;
+  --accent-hover: #8A5AEB;
+  --accent-soft: #F0E8FF;
+  --accent-text: #6B3FC9;
+
+  --success: #00C48C;
+  --success-soft: #D9F7EE;
+
+  --danger: #FA4542;
+  --danger-soft: #FFE5E4;
+
+  --border: #E0E3EC;
+  --border-strong: #CBD1DE;
+
+  --shadow-sm: 0 2px 8px rgba(112, 144, 176, 0.08);
+  --shadow-md: 0 8px 24px rgba(112, 144, 176, 0.12);
+  --shadow-lg: 0 18px 40px rgba(112, 144, 176, 0.16);
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  --dial-track: #B8BECF;
+  --dial-fill: var(--accent);
+}
+
+[data-theme="dark"] {
+  --bg: #2B2630;
+  --bg-elevated: #322C38;
+  --surface: #363843;
+  --surface-2: #3F4150;
+  --surface-3: #464857;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #9A9DA8;
+  --text-tertiary: #6B6E7A;
+  --text-inverse: #1C1721;
+
+  --accent: #B388FF;
+  --accent-hover: #C29EFF;
+  --accent-soft: #4A3A5C;
+  --accent-text: #D4BAFF;
+
+  --success: #2DD4A0;
+  --success-soft: #1F4A3E;
+
+  --danger: #FF6B68;
+  --danger-soft: #4A2422;
+
+  --border: #444752;
+  --border-strong: #565967;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.5);
+
+  --dial-track: #5A5E6B;
+  --dial-fill: var(--accent);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  color-scheme: light dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-family: var(--font-jost), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

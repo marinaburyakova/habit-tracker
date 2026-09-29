@@ -1,0 +1,99 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.row:hover {
+  background: var(--surface-2);
+}
+
+.selected {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.check {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.check:hover {
+  border-color: var(--accent);
+}
+
+.checkDone {
+  background: var(--accent);
+  border-color: var(--accent);
+  animation: pop 0.3s ease-out;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}.delete {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  opacity: 0;
+}
+
+.row:hover .delete {
+  opacity: 1;
+}
+
+.delete:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}

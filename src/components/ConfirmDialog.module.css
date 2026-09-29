@@ -1,0 +1,96 @@
+.dialog {
+  margin: auto; /* ← обязательно */
+  max-width: 400px;
+  width: calc(100% - 32px);
+  border: none;
+  padding: 0;
+  background: transparent;
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  overflow: visible; /* ← убрать эту строку */
+}
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.cancel,
+.confirm {
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+  font-family: inherit;
+}
+
+.cancel {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.cancel:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+
+.confirm {
+  background: var(--accent);
+  color: #fff;
+}
+
+.confirm:hover {
+  background: var(--accent-hover);
+}
+
+.cancel:active,
+.confirm:active {
+  transform: scale(0.97);
+}
+
+.danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.danger:hover {
+  filter: brightness(1.1);
+}

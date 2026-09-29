@@ -1,0 +1,31 @@
+.wrapper {
+  min-height: 100vh;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg);
+}
+
+.dial {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  margin: 0 auto 24px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.card {
+  height: 68px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
