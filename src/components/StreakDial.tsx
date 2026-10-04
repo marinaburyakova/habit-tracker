@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import styles from './StreakDial.module.css'
+import styles from './StreakDial.module.css';
 
 type StreakDialProps = {
-  value: number
-  label: string
-  progress?: number
-  max?: number
-  size?: number
-}
+  value: number;
+  label: string;
+  progress?: number;
+  max?: number;
+  size?: number;
+};
 
 export default function StreakDial({
   value,
@@ -17,25 +17,25 @@ export default function StreakDial({
   max = 30,
   size = 280,
 }: StreakDialProps) {
-  const SEGMENTS = 60
-  const OUTER_RADIUS = size / 2 - 4
-  const INNER_RADIUS_SEGMENT = OUTER_RADIUS - 14
-  const INNER_CIRCLE_RADIUS = INNER_RADIUS_SEGMENT - 14
+  const SEGMENTS = 60;
+  const OUTER_RADIUS = size / 2 - 4;
+  const INNER_RADIUS_SEGMENT = OUTER_RADIUS - 14;
+  const INNER_CIRCLE_RADIUS = INNER_RADIUS_SEGMENT - 14;
 
-  const center = size / 2
-  const filled = Math.round((Math.min(progress, max) / max) * SEGMENTS)
+  const center = size / 2;
+  const filled = Math.round((Math.min(progress, max) / max) * SEGMENTS);
 
   const segments = Array.from({ length: SEGMENTS }, (_, i) => {
-    const angle = (i / SEGMENTS) * 360 - 90
-    const rad = (angle * Math.PI) / 180
+    const angle = (i / SEGMENTS) * 360 - 90;
+    const rad = (angle * Math.PI) / 180;
 
-    const x1 = center + INNER_RADIUS_SEGMENT * Math.cos(rad)
-    const y1 = center + INNER_RADIUS_SEGMENT * Math.sin(rad)
-    const x2 = center + OUTER_RADIUS * Math.cos(rad)
-    const y2 = center + OUTER_RADIUS * Math.sin(rad)
+    const x1 = center + INNER_RADIUS_SEGMENT * Math.cos(rad);
+    const y1 = center + INNER_RADIUS_SEGMENT * Math.sin(rad);
+    const x2 = center + OUTER_RADIUS * Math.cos(rad);
+    const y2 = center + OUTER_RADIUS * Math.sin(rad);
 
-    return { x1, y1, x2, y2, filled: i < filled, key: i }
-  })
+    return { x1, y1, x2, y2, filled: i < filled, key: i };
+  });
 
   return (
     <div className={styles.wrapper} style={{ width: size, height: size }}>
@@ -48,13 +48,18 @@ export default function StreakDial({
       >
         <defs>
           {/* Градиент для обводки внутреннего круга */}
-          <linearGradient id="dialRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="dialRingGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#FD93FF" />
             <stop offset="100%" stopColor="#725CF8" />
           </linearGradient>
 
           {/* Внутренний градиент круга */}
-        
 
           {/* Тень под внутренним кругом */}
           <filter id="dialShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -69,8 +74,7 @@ export default function StreakDial({
             </feMerge>
           </filter>
         </defs>
-
-        {/* Внутренний круг с тенью */}
+        Внутренний круг с тенью
         <circle
           cx={center}
           cy={center}
@@ -78,7 +82,6 @@ export default function StreakDial({
           fill="url(#dialInnerGradient)"
           filter="url(#dialShadow)"
         />
-
         {/* Обводка внутреннего круга — градиент */}
         <circle
           cx={center}
@@ -88,7 +91,6 @@ export default function StreakDial({
           stroke="url(#dialRingGradient)"
           strokeWidth="5.5"
         />
-
         {/* Сегменты (штрихи) */}
         {segments.map((s) => (
           <line
@@ -110,5 +112,5 @@ export default function StreakDial({
         <div className={styles.label}>{label}</div>
       </div>
     </div>
-  )
+  );
 }

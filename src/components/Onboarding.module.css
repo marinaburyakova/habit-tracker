@@ -1,28 +1,35 @@
 .wrapper {
   position: relative;
-  min-height: 100vh;
+  width: 390px;
+  /* min-height: 100vh; */
+  min-height: 844px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 32px 24px 48px;
+  justify-content: space-between;
   gap: 32px;
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+  background: linear-gradient(
+    200deg,
+    var(--accent-bg) 7%,
+    var(--accent-bg2) 99%
+  );
   overflow: hidden;
 }
 
 .skip {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 40px;
+  right: 32px;
   background: none;
   border: none;
-  color: var(--text-secondary);
-  font-size: 15px;
-  font-weight: 500;
+  color: var(--text-inverse);
+  font-size: 14px;
+  font-weight: 400;
   cursor: pointer;
   padding: 8px 12px;
   transition: color 0.15s;
+  z-index: 10;
 }
 
 .skip:hover {
@@ -31,25 +38,11 @@
 
 .imageWrap {
   position: relative;
-  width: 280px;
-  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.glow {
-  position: absolute;
-  inset: 10%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    var(--accent-soft) 0%,
-    transparent 70%
-  );
-  filter: blur(40px);
-  z-index: 0;
+  min-height: 438px; 
 }
 
 .image {
@@ -72,11 +65,10 @@
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text-inverse);
   line-height: 1.2;
 }
 
@@ -84,8 +76,7 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--text-secondary);
-  margin: 0;
+  color: var(--text-inverse);
 }
 
 .dots {
@@ -113,13 +104,15 @@
   width: 24px;
   border-radius: 4px;
   background: var(--accent);
+  border: solid 0.5px var(--border-strong);
 }
 
 .button {
   display: inline-flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 8px;
-  padding: 16px 28px;
+  gap: 45px;
+  padding: 16px 10px;
   border-radius: var(--radius-full);
   border: none;
   background: var(--accent);
@@ -127,10 +120,12 @@
   font-size: 17px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
   box-shadow: 0 8px 24px rgba(158, 109, 251, 0.3);
-  min-width: 220px;
-  justify-content: center;
+  min-width: 271px;
+  max-height: 57px;
 }
 
 .button:hover {
@@ -145,10 +140,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 47px;
+  height: 47px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: radial-gradient(
+    57.78% 57.85% at 51.24% 59.68%,
+    #f79f40 0%,
+    #f7a542 16%,
+    #f8b44a 37%,
+    #face55 60%,
+    #fbe660 77%,
+    #fbf36f 91%,
+    #fbf672 93%,
+    #fbf676 95%,
+    #fbf783 96%,
+    #fcf897 98%,
+    #fdfab4 99%,
+    #fdfbc2 100%
+  );
   font-size: 16px;
   line-height: 1;
 }

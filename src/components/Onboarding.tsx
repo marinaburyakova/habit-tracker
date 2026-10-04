@@ -13,17 +13,17 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    image: '/onboarding/1.png',
+    image: '/onboarding/1.svg',
     title: 'Habits tracker App',
     description: 'Collect points and achievements. Mark the completion of tasks every day.',
   },
   {
-    image: '/onboarding/2.png',
+    image: '/onboarding/2.svg',
     title: 'Build your streak',
     description: 'Every day you complete a habit, your streak grows. Miss a day — start over.',
   },
   {
-    image: '/onboarding/3.png',
+    image: '/onboarding/3.svg',
     title: 'Unlock achievements',
     description: 'Earn points, unlock badges, and watch your progress grow over time.',
   },
@@ -57,24 +57,17 @@ export default function Onboarding() {
       >
         Skip
       </button>
-
       <div className={styles.imageWrap}>
-        <div className={styles.glow} aria-hidden />
+        <div aria-hidden />
         <Image
           src={slide.image}
           alt=""
-          width={280}
-          height={280}
+          width={294}
+          height={438}
           className={styles.image}
           priority
         />
       </div>
-
-      <div className={styles.content}>
-        <h1 className={styles.title}>{slide.title}</h1>
-        <p className={styles.description}>{slide.description}</p>
-      </div>
-
       <div className={styles.dots} role="tablist" aria-label="Onboarding steps">
         {SLIDES.map((_, i) => (
           <button
@@ -88,7 +81,10 @@ export default function Onboarding() {
           />
         ))}
       </div>
-
+      <div className={styles.content}>
+        <h1 className={styles.title}>{slide.title}</h1>
+        <p className={styles.description}>{slide.description}</p>
+      </div>
       <button
         type="button"
         className={styles.button}
